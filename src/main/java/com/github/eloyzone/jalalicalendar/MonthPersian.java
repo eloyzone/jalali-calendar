@@ -1,4 +1,4 @@
-package zone.eloy.commons.jalalicalendar;
+package com.github.eloyzone.jalalicalendar;
 
 import java.time.DateTimeException;
 

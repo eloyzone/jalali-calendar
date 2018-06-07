@@ -1,4 +1,4 @@
-package zone.eloy.commons.jalalicalendar;
+package com.github.eloyzone.jalalicalendar;
 
 /**
  * Created By Eloy on 5/7/18.
