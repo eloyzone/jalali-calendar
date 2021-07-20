@@ -109,12 +109,12 @@ public class LibTest
         String errorMessage = "Jalali date formatter does not work properly";
 
         String[][] persianTestCases = {
-                {"yyyy/mm/dd", "١٣٧٠/١١/٢٨"},
-                {"yyyy/M/dd", "٢٨/بهمن/١٣٧٠"},
-                {"yyyy/ M dd", "٢٨ بهمن /١٣٧٠"},
-                {"yyyy- M dd", "٢٨ بهمن -١٣٧٠"},
-                {"yyyy M dd", "٢٨ بهمن ١٣٧٠"},
-                {"yyyyMdd", "٢٨بهمن١٣٧٠"},
+                {"yyyy/mm/dd", "۱۳۷۰/۱۱/۲۸"},
+                {"yyyy/M/dd", "۲۸/بهمن/۱۳۷۰"},
+                {"yyyy/ M dd", "۲۸ بهمن /۱۳۷۰"},
+                {"yyyy- M dd", "۲۸ بهمن -۱۳۷۰"},
+                {"yyyy M dd", "۲۸ بهمن ۱۳۷۰"},
+                {"yyyyMdd", "۲۸بهمن۱۳۷۰"},
         };
 
         String[][] englishTestCases = {
@@ -132,6 +132,21 @@ public class LibTest
             assertEquals(errorMessage, jalaliDate.format(new JalaliDateFormatter(strings[0])), strings[1]);
 
         new JalaliDate();
+    }
+
+    @Test
+    public void persianNumberCheck() {
+        String errorMessage = "Jalali date formatter does not work properly. Make sure you enter Persian numbers not Arabic.";
+
+        DateConverter dateConverter = new DateConverter();
+
+        JalaliDate jalaliDate1 = dateConverter.gregorianToJalali(1992, Month.FEBRUARY, 17);
+        JalaliDate jalaliDate2 = dateConverter.gregorianToJalali(2015, Month.JULY, 28);
+
+        // We check if Persian number is entered, not Arabic. Example: ٤ => Arabic & ۴ => Persian
+        assertEquals(errorMessage, jalaliDate1.format(new JalaliDateFormatter("yyyy/mm/dd", JalaliDateFormatter.FORMAT_IN_PERSIAN)), "۱۳۷۰/۱۱/۲۸");
+        assertEquals(errorMessage, jalaliDate2.format(new JalaliDateFormatter("yyyy/mm/dd", JalaliDateFormatter.FORMAT_IN_PERSIAN)), "۱۳۹۴/۰۵/۰۶");
+
     }
 
     // --------------------------------- Test exceptions ------------------------------------------

@@ -195,25 +195,25 @@ public class JalaliDateFormatter
     private char replaceWithPersian(char resultChar)
     {
         if (resultChar == '0')
-            return '\u0660';
+            return '\u06F0';
         if (resultChar == '1')
-            return '\u0661';
+            return '\u06F1';
         if (resultChar == '2')
-            return '\u0662';
+            return '\u06F2';
         if (resultChar == '3')
-            return '\u0663';
+            return '\u06F3';
         if (resultChar == '4')
-            return '\u0664';
+            return '\u06F4';
         if (resultChar == '5')
-            return '\u0665';
+            return '\u06F5';
         if (resultChar == '6')
-            return '\u0666';
+            return '\u06F6';
         if (resultChar == '7')
-            return '\u0667';
+            return '\u06F7';
         if (resultChar == '8')
-            return '\u0668';
+            return '\u06F8';
         if (resultChar == '9')
-            return '\u0669';
+            return '\u06F9';
 
         return resultChar;
     }
